@@ -7,38 +7,30 @@ export default () =>
     .title('Website')
     .items([
       S.listItem()
-        .title('Settings')
+        .title('General')
         .child(
-          S.list()
-            .title('Settings')
-            .items([
-              S.listItem()
-                .title('General')
-                .child(
-                  S.document()
-                    .id('generalSettings')
-                    .schemaType('generalSettings')
-                    .documentId('generalSettings')
-                )
-                .icon(Gear),
-              S.divider(),
-              S.listItem()
-                .title('Shop')
-                .child(
-                  S.document()
-                    .id('shopSettings')
-                    .schemaType('shopSettings')
-                    .documentId('shopSettings')
-                )
-                .icon(ShoppingCart),
-              S.divider(),
-              S.listItem()
-                .title('Redirects')
-                .child(S.documentTypeList('redirect').title('Redirects'))
-                .icon(Shuffle),
-            ])
+          S.document()
+            .id('generalSettings')
+            .schemaType('generalSettings')
+            .documentId('generalSettings')
         )
         .icon(Gear),
+      S.divider(),
+      S.listItem()
+        .title('Shop')
+        .child(
+          S.document()
+            .id('shopSettings')
+            .schemaType('shopSettings')
+            .documentId('shopSettings')
+        )
+        .icon(ShoppingCart),
+      S.divider(),
+      S.listItem()
+        .title('Redirects')
+        .child(S.documentTypeList('redirect').title('Redirects'))
+        .icon(Shuffle),
+      ,
       ...S.documentTypeListItems().filter(
         (listItem) =>
           !['generalSettings', 'shopSettings', 'redirect'].includes(
